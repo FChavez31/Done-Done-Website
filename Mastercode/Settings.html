@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+  
+    <title>Settings</title>
+    <!--CSS Style Sheets-->
+    <link rel="stylesheet" href="styles/general.css" />
+    <link rel="stylesheet" href="styles/settingsstyle.css" />
+   
+   </head>
+ 
+   <body>
+    <!---Header-->
+    <header class="header">
+     <!------Logo------>
+      <div class="left-section">
+        <img class="logo" src="icons/logo.png" />
+      </div>
+ 
+      
+      
+    <!-----------------------Javascript For Opening & Closing Form--------------------------->
+        <script>
+          function openForm() {
+            document.getElementById("myForm").style.display = "block";
+          }
+
+          function closeForm() {
+            document.getElementById("myForm").style.display = "none";
+          }
+        </script>
+   
+    <!---Home Button-->
+    <div class="right-section">
+      <button class="home-icon-container"
+       class="open-button"
+       onclick="location.href='HOMEPAGE.php'">
+         <img class="home-icon-container" src="icons/home6.png" />
+         <div class="tooltip">Home</div>
+       </button>
+       
+
+      <!--Settings Button--->
+      <div>
+          <button class="account-icon-container"
+            class="open-button"
+            onclick="openDropdown()">
+            <img class="account-settings-icon" src="icons/account-settings.png" />
+            <div class="tooltip">Account Settings</div>
+          </button>
+         </div>
+    
+      
+    <!--------------------Settings Dropdown------------------------------>
+        <div class="drop-down" id="myDropdown">
+          <form class="form-container">
+            <button type="submit" formaction="login.html" class="btn nav">
+              Logout
+            </button>
+            <button type="submit" formaction="Settings.html" class="btn nav">
+              Account
+            </button>
+            <button type="button" class="btn cancel" onclick="closeDropdown()">
+              Close
+            </button>
+          </form>
+        </div>
+        
+        <!-----------------------Javascript For Opening & Closing Settings Dropdown--------------------------->
+        <script>
+          function openDropdown() {
+            document.getElementById("myDropdown").style.display = "block";
+          }
+
+          function closeDropdown() {
+            document.getElementById("myDropdown").style.display = "none";
+          }
+        </script>
+       
+      </div>
+    
+    </header>
+  
+    <!--Form Container--->
+    <div class="container">
+        <div id="logo">
+          <h1 class="logo"></h1>
+          <div class="CTA">
+             </div>
+             
+      <div class="rightbox">
+          <div class="profile">
+        </div>
+
+     <!--Form Fields--->   
+    <form action ="settingsconnect.php" method="post">
+    
+    <h3 class="form-title">User Profile</h3>
+
+     
+    <label for="firstname">First Name: </label><br>
+    <input type="text" id="firstname" name="firstname" maxlength="45" ></br>
+   
+    <label for="lname">Last Name:</label><br>
+    <input type="text" id="lastname" name="lastname" maxlength="45" ></br>
+
+    <label for ="email">Email:</label><br>
+    <input type ="email" id="email" name="email" placeholder="example@example.com" 
+    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" ></br>
+   
+    <label for="oldpassword">Current Password: </label><br>
+    <input type="password" id="password" name="password" maxlength="45"  pattern = "(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+    title="Must contain at least one number and one uppercase and lowercase letter"></br>
+  
+    <label for="newpassword">New Password: </label><br>
+    <input type="password" id="newpassword" name="newpassword" maxlength="45" pattern = "(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+     title="Must contain at least one  number and one uppercase and lowercase letter"></br>
+
+
+
+<!---Cancel & Update Button-->
+<button type="button" onclick="resetProfile()"> Cancel</button> 
+<button type="submit" onclick="saveProfile()">Update</button>
+
+</form>
+
+<!------Javascript------->          
+<script> 
+
+//Cancel Button Message
+
+function resetProfile() {
+  let firstname = document.getElementById('firstname');
+  let lastname = document.getElementById('lastname');
+  let email = document.getElementById('email');
+  let password = document.getElementById('password');
+  let newpassword = document.getElementById('newpassword');
+
+  // Store the current values of the form fields
+  let firstnameValue = firstname.value;
+  let lastnameValue = lastname.value;
+  let emailValue = email.value;
+  let passwordValue = password.value;
+  let newpasswordValue = newpassword.value;
+
+  if (confirm("Are you sure you want to cancel?")) {
+    // If the user clicks "OK", reset the form data
+    firstname.value = '';
+    lastname.value = '';
+    email.value = '';
+    password.value = '';
+    newPassword.value = '';
+  } else {
+    // If user clicks "cancel", restore the saved values 
+    firstname.value = firstnameValue;
+    lastname.value = lastnameValue;
+    email.value = emailValue;
+    password.value = passwordValue;
+    newPassword.value = newpasswordValue;
+  }
+}
+
+
+//////Display Updated User Info/////
+// Load the user's profile data when the page loads
+window.onload = function() {
+loadProfile();
+};
+
+// Populate the form
+function loadProfile() {
+
+let firstname = localStorage.getItem("firstname");
+let lastname = localStorage.getItem("lastname");
+let email = localStorage.getItem("email");
+
+document.getElementById("firstname").value = firstname;
+document.getElementById("lastname").value = lastname;
+document.getElementById("email").value = email;
+
+}
+
+
+// Validate form before submission
+function validateForm() {
+  let password = document.getElementById("password").value;
+  let newPassword = document.getElementById("newpassword").value;
+  
+  if (!password && newPassword) {
+    alert("Must fill in current password");
+    return false;
+  }
+  
+  if (password && !newPassword) {
+    alert("Please enter new password");
+    return false;
+  }
+  
+  return true;
+}
+
+// Submit form
+function saveProfile() {
+  if (validateForm()) {
+    // Save the user's profile info
+    let firstname = document.getElementById("firstname").value;
+    let lastname = document.getElementById("lastname").value;
+    let email = document.getElementById("email").value;
+    
+    localStorage.setItem("firstname", firstname);
+    localStorage.setItem("lastname", lastname);
+    localStorage.setItem("email", email);
+    
+    alert("Profile saved.");
+  }
+}
+
+</script> 

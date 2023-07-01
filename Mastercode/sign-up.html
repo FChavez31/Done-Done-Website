@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="styles/signupstyles.css" />
+    <img src="icons/logo.png" alt="logo" />
+  </head>
+  <body>
+    <script>
+      function passwordConfirmation() {
+        var password = document.getElementById("password").value;
+
+        if (password == "") {
+          alert("Please fill in the empty fields.");
+        } else if (password.length < 7) {
+          alert("Please make sure your password is greater than 8 characters.");
+        } else {
+          return true;
+        }
+      }
+    </script>
+    <div class="signupbox">
+      <h1>Sign-Up</h1>
+      <form action="signupconnect.php" method="post">
+        <label> </label>
+        <input type="text" placeholder="First Name" name = "firstname" required /><br />
+        <label></label>
+        <input type="text" placeholder="Last Name" name = "lastname" required /><br />
+        <label></label>
+        <input type="email" placeholder="Email" name="email" required /><br />
+        <label></label>
+        <input type="password" id="password" placeholder="Password" name="password" pattern=".{8,40}" title="8 or more Character" size="30" required pattern="[!@#$%^&*][a-z][A-Z][0-9]" required /><br />
+        <input type="password" id="password" placeholder="Confirm Password" name="confirmpassword" pattern=".{8,40}" title="8 or more Character" size="30" required pattern="[!@#$%^&*][a-z][A-Z][0-9]" required /><br />
+        <button type="submit" onclick="passwordConfirmation()">Submit</button>
+      </form>
+      <div class="already">
+        Already have an account?
+        <a href="login.html">Login</a>
+      </div>
+    </div>
+  </body>
+</html>

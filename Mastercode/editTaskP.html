@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!--linking to css style sheet-->
+        <link rel="stylesheet" href="styles/editPage.css">
+        <title>Edit Task</title>
+        <script src="https://kit.fontawesome.com/e2e6378472.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <form action = "update.php" method="post" autocomplete="on">
+        <!--edit task title-->
+        <!--<div class="editContainer">-->
+            <h2>+Edit Task</h2>
+        <div class="editContainer">
+            <!--history feature drop down-->
+            <div class="drop">
+                <img src="icons/history.png"> 
+                <!--still need to add on to here for history jxt wanted a view look -->
+                <div class="drop-content">
+                       <option>personal</option>
+                        <option>finance</option>
+                        <option>work</option>
+                        <option>school</option>
+                        <option>miscellaneous</option>
+                        <option>unknown</option>
+                  
+                </div>
+            </div>
+           <!-- <i class="fa-light fa-clock-rotate-left"></i> -->
+            <!--title -->
+            <label>Title<br/>
+                <input type="text">
+            </label>
+            <!--category: personal, finance, work, school, -->
+            <!--miscellaneous, unknown-->
+            <p>
+                <label>Category<br/>
+                    <select name="personal">
+                        <option>personal</option>
+                        <option>finance</option>
+                        <option>work</option>
+                        <option>school</option>
+                        <option>miscellaneous</option>
+                        <option>unknown</option>
+                    </select>
+                </label>
+            </p>
+            <!--description box-->
+            <p>
+                <label>Description<br/>
+                    <textarea name="description" rows="5" cols="35"></textarea><br/>
+                </label>
+            </p>
+            <!--Date-->
+            <label>Date<br/>
+                <input type="date">
+            </label>
+            <!--save n cancel-->
+            <p>
+        
+                    <input type="submit" value="save" />
+                    <input type="reset" value="cancel" />
+                
+            </p>
+
+
+            
+        </div>
+        </form>
+            
+                
+
+
+    </body>
+    
+</html>
