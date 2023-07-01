@@ -1,0 +1,19 @@
+create table user(uID int unsigned not null AUTO_INCREMENT, firstname varchar(45), lastname varchar(45), email varchar(45), password varchar(45), primary key (uID));
+
+create table category(cID int unsigned not null AUTO_INCREMENT, category varchar(45), primary key (cID));
+
+Create table status(sID int unsigned not null AUTO_INCREMENT, status varchar(45), primary key(sID));
+
+create table task(tID int unsigned not null AUTO_INCREMENT, title varchar(45), duedate date, uID int unsigned, cID int unsigned, sID int unsigned, description varchar(200), primary key(tID), foreign key(uID) references user(uID) on delete set null on update cascade, foreign key(cID) references category(cID) on delete set null on update cascade, foreign key(sID) references status(sID) on delete set null on update cascade);
+
+insert into category (category) values ('Personal');
+insert into category (category) values ('Finance');
+insert into category (category) values ('Work');
+insert into category (category) values ('School');
+insert into category (category) values ('Miscellaneous');
+insert into category (category) values ('Unknown');
+
+insert into status (status) values('In Progress');
+insert into status (status) values('Completed');
+
+create event taskdelete on schedule every 7 day do delete from task where sID =2;
