@@ -1,0 +1,284 @@
+/*color, size and position for header*/
+.header {
+  height: 75px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: rgba(199, 171, 255, 255);
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: rgba(199, 171, 255, 255);
+}
+/*left section of header*/
+.left-section {
+  display: flex;
+  align-items: center;
+}
+/*logo style*/
+.logo {
+  margin-left: 50px;
+  height: 60px;
+}
+/*middle section of header*/
+.middle-section {
+  flex: 1;
+  margin-left: 70px;
+  margin-right: 35px;
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+}
+/*style and position for search bar*/
+.search-bar {
+  flex: 1;
+  height: 45px;
+  padding-left: 10px;
+  font-size: 16px;
+  width: 0;
+  border-style: solid;
+  border-radius: 20px;
+  border-color: rgba(199, 171, 255, 255);
+  border-width: 1px;
+}
+/*style for inside placeholder text*/
+.search-bar::placeholder {
+  font-size: 16px;
+}
+/*color and size for header action buttons*/
+.search-button,
+.create-task-button,
+.account-icon-container {
+  height: 50px;
+  width: 50px;
+  background-color: white;
+  border-style: none;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+/*position for header action buttons*/
+.search-button,
+.create-task-button,
+.account-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+/*tool tip position, color, size, etc. for header action buttons*/
+.search-button .tooltip,
+.create-task-button .tooltip,
+.account-icon-container .tooltip {
+  position: absolute;
+  background-color: gray;
+  color: white;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-radius: 2px;
+  font-size: 12px;
+  bottom: -30px;
+  opacity: 0;
+  transition: opacity 0.15s;
+  pointer-events: none;
+  white-space: nowrap;
+}
+/*tool tip appear when hover*/
+.search-button:hover .tooltip,
+.create-task-button:hover .tooltip,
+.account-icon-container:hover .tooltip {
+  opacity: 1;
+}
+/*icon size for header action buttons*/
+.search-icon,
+.create-task-icon,
+.account-settings-icon {
+  height: 32px;
+}
+/*right section of header*/
+.right-section {
+  width: 180px;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+/*color, size and position for side bar*/
+.sidebar {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  top: 76px;
+  background-color: rgba(151, 154, 170);
+  width: 100px;
+  z-index: 200;
+}
+/*color, size and position for side bar navigation links*/
+.sidebar-link {
+  height: 74px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+/*change color when hover*/
+.sidebar-link:hover {
+  background-color: rgba(199, 171, 255, 255);
+}
+/*text for navigation links*/
+.sidebar-link div {
+  font-size: 15px;
+  color: whitesmoke;
+}
+/*grid format for divs which contain tasks*/
+.task-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 5px;
+  row-gap: 5px;
+}
+/*style for sample form, will probably change due to Stephanie's (Edit Task) & Emillio's (New Task) code*/
+.task-form {
+  width: 300px;
+  border: 5px solid rgba(199, 171, 255, 255);
+  border-radius: 10px;
+  padding: 50px;
+  margin: 20px;
+  font-size: 15px;
+}
+.status,
+input[type="checkbox"] {
+  padding-left: 100px;
+  margin-left: 100px;
+}
+/*default size and style for text input*/
+input[type="text"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid rgba(199, 171, 255, 255);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  border-radius: 10px;
+}
+/*when click, change border*/
+input[type="text"]:focus {
+  border: 3px solid lightgray;
+}
+/*popup form is hidden by default*/
+.form-popup {
+  display: none;
+  position: fixed;
+  top: 85px;
+  right: 5px;
+  border: 5px solid rgba(199, 171, 255, 255);
+  border-radius: 10px;
+  z-index: 9;
+  color: slategrey;
+  font-size: 20px;
+}
+/*form container size and color*/
+.form-container {
+  max-width: 300px;
+  max-height: 100%;
+  padding: 18px;
+  background-color: rgba(199, 171, 255, 255);
+  overflow-y: scroll;
+}
+/*full-width input fields*/
+.category,
+.form-container input[type="text"] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: 3px solid rgba(199, 171, 255, 255);
+  border-radius: 10px;
+  background: white;
+}
+.form-container input[name="Description"] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  height: 100px;
+  border: none;
+  background: white;
+  border-radius: 10px;
+}
+/*when click on text input in form, do something*/
+.form-container input[type="text"]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+/*save button color and size*/
+.form-container .btn {
+  background-color: #04aa6d;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+/*cancel button color and size*/
+.form-container .cancel {
+  background-color: red;
+}
+/*when hover, do something*/
+.form-container .btn:hover,
+.open-button:hover {
+  opacity: 1;
+}
+/*navigation button color and size*/
+.form-container .nav {
+  background-color: lightslategray;
+}
+/*drop-down is hidden by default*/
+.drop-down {
+  display: none;
+  position: fixed;
+  top: 85px;
+  right: 5px;
+  border: 5px solid rgba(199, 171, 255, 255);
+  border-radius: 10px;
+  z-index: 9;
+}
+.dueDate {
+  width: 90%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: white;
+  border-radius: 10px;
+}
+[type="date"] {
+  background: #fff
+    url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)
+    97% 50% no-repeat;
+}
+[type="date"]::-webkit-inner-spin-button {
+  display: none;
+}
+[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+body {
+  /*This style below will be inherited*/
+  font-family: Arial;
+  margin: 0;
+  padding-top: 80px;
+  padding-left: 96px;
+  padding-right: 24px;
+  background-color: rgba(76, 81, 109);
+}

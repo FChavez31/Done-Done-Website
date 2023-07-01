@@ -1,0 +1,28 @@
+/*color, size and position for side bar*/
+.sidebar {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  top: 76px;
+  background-color: lightslategrey;
+  width: 100px;
+  z-index: 200;
+}
+/*color, size and position for side bar navigation links*/
+.sidebar-link {
+  height: 74px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  cursor: pointer;
+}
+/*change color when hover*/
+.sidebar-link:hover {
+  background-color: rgba(199, 221, 235, 255);
+}
+/*text for navigation links*/
+.sidebar-link div {
+  font-size: 15px;
+  color: whitesmoke;
+}

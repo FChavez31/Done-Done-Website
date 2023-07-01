@@ -1,0 +1,97 @@
+*{
+    margin: 5px;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    background-color: lightblue;
+}
+h2{
+    text-align: center;
+    letter-spacing: 0.1em;
+}
+
+.editContainer{
+    padding: 10px;
+    border-radius: 10px;
+    border: 8px solid azure;
+    background-color: aliceblue;
+}
+form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+label{
+    padding: 5px;
+    font-size: large;
+}
+input[type=submit], input[type=reset]{
+    background-color: lightsteelblue;
+    border: none;
+    border-radius: 10px;
+    color: black;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    text-align: right;
+    display:inline-block;
+    justify-content: center;
+    align-items: center;
+        margin: auto;
+}
+
+/*align-right{
+    text-align: right;
+    border: 0;
+}*/
+/*.fa-light {
+    color: blue;
+    justify-content: right;
+    
+}*/
+img{
+    /* idk how to style this play with it later */
+    height: 35px;
+    width: 35px;
+    position: fixed;
+    margin-right: 10px;
+    margin-left: 10px;
+    
+}
+img:hover{
+    cursor: pointer;
+}
+.drop{
+    position: relative;
+    display: inline-block;
+}
+.drop-content{
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9 ;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.drop:hover .drop-content{
+    display: block;
+}
+.drop .drop-content option{
+    color:black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.drop .drop-content option:hover{
+    background-color:  lightsteelblue;
+}

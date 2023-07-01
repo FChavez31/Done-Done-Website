@@ -1,0 +1,196 @@
+/*grid format for divs which contain tasks*/
+.task-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 5px;
+  row-gap: 5px;
+}
+/*style for sample form, will probably change due to Stephanie's (Edit Task) & Emillio's (New Task) code*/
+.task-form {
+  width: 300px;
+  border: 5px solid rgba(199, 221, 235, 255);
+  border-radius: 10px;
+  padding: 50px;
+  margin: 20px;
+  font-size: 15px;
+}
+.status,
+input[type="checkbox"] {
+  padding-left: 100px;
+  margin-left: 100px;
+}
+/*default size and style for text input*/
+input[type="text"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid rgba(199, 221, 235, 255);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  border-radius: 10px;
+}
+/*when click, change border*/
+input[type="text"]:focus {
+  border: 3px solid lightgray;
+}
+/*popup form is hidden by default*/
+.form-popup {
+  display: none;
+  position: fixed;
+  top: 85px;
+  right: 5px;
+  border: 5px solid rgba(199, 221, 235, 255);
+  border-radius: 10px;
+  z-index: 9;
+  color: slategrey;
+  font-size: 20px;
+}
+/*form container size and color*/
+.form-container {
+  max-width: 350px;
+  height: auto;
+  padding: 5px;
+  margin: auto;
+  background-color: rgba(199, 221, 235, 255);
+  overflow-y: scroll;
+}
+/*full-width input fields*/
+.editContainer input[type="text"],
+.category,
+.form-container input[type="text"] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: 3px solid rgba(199, 221, 235, 255);
+  border-radius: 10px;
+  background: white;
+}
+
+.form-container input[name="Description"] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  height: 100px;
+  background: white;
+  border-radius: 10px;
+}
+/*when click on text input in form, do something*/
+.form-container input[type="text"]:focus {
+  border: 3px solid lightgray;
+}
+/*save button color and size*/
+.editContainer .btn,
+.form-container .btn {
+  background-color: #04aa6d;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+  opacity: 0.8;
+  border-radius: 10px;
+  font-size: 20px;
+}
+/*cancel button color and size*/
+.editContainer .cancel,
+.form-container .cancel {
+  background-color: red;
+  font-size: 20px;
+  border-radius: 10px;
+}
+/*when hover, do something*/
+.form-container .btn:hover,
+.open-button:hover {
+  opacity: 1;
+}
+/*navigation button color and size*/
+.form-container .nav {
+  background-color: lightslategrey;
+  font-size: 20px;
+  border-radius: 10px;
+}
+/*drop-down is hidden by default*/
+.drop-down {
+  display: none;
+  position: fixed;
+  top: 85px;
+  right: 5px;
+  border: 5px solid rgba(199, 221, 235, 255);
+  border-radius: 10px;
+  z-index: 9;
+}
+
+input[type=text]{
+  text-align: left;
+  
+}
+button[name="completed"]{
+  display: flex;
+  width:40%;
+  height:40px;
+  border: 3px solid;
+  border-color:white;
+  color:black;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  background-color: lightblue;
+  margin: auto;
+  cursor:pointer;
+  font-weight: 700;
+}
+
+/* Need help making homepage responsive to screen size, for some reason this section doesn't work?
+@media screen and (max-width: 750px) {
+  .task-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media screen and (min-width: 751px) and (max-width: 999px) {
+  .task-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .task-grid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+*/
+.dueDate {
+  width: 90%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: white;
+  border-radius: 10px;
+}
+[type="date"] {
+  background: #fff
+    url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)
+    97% 50% no-repeat;
+}
+[type="date"]::-webkit-inner-spin-button {
+  display: none;
+}
+[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+ }
+ textarea:focus{
+  border: 3px solid lightgray
+ }
